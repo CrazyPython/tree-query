@@ -52,7 +52,7 @@ void parse(ParseEventHandler,
         Args...)
     (string input, int spaces_per_indent, string title, Args args) {
     import std.traits;
-    ParseEventHandler parser = ParseEventHandler(args);
+    ParseEventHandler handler = ParseEventHandler(args);
     //const initial_indent_level = 
     int current_indent_level;
     //BitType current_bits;
@@ -60,16 +60,16 @@ void parse(ParseEventHandler,
     int line_content_start_index;
     // Workwround for void not being a parameter type
     void emitBlockStart(string nodeContent) {
-        static if (is(ReturnType!(parser.start) == void)) {
-            parser.start(nodeContent);
+        static if (is(ReturnType!(handler.start) == void)) {
+            handler.start(nodeContent);
             deleStart();
-        } else deleStart(parser.start(nodeContent));
+        } else deleStart(handler.start(nodeContent));
     }
     void emitBlockEnd() {
-        static if (is(ReturnType!(parser.end) == void)) {
-            parser.end();
+        static if (is(ReturnType!(handler.end) == void)) {
+            handler.end();
             deleEnd();
-        } else deleEnd(parser.end());
+        } else deleEnd(handler.end());
     }
     emitBlockStart(title);
     for (int i = 0; i < input.length; ++i) {
