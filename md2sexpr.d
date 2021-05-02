@@ -1,7 +1,7 @@
 import parser;
 import std.string;
 private string escape(string text) {
-    return `"` ~ text.replace(`\`, `\\`).replace(`"`, `\\"`) ~ `"`;
+    return `"` ~ text.replace(`\`, `\\`).replace(`"`, `\"`) ~ `"`;
 }
 struct ConvertToSExprEventHandler {
     string start(string text) {
