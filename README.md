@@ -1,8 +1,14 @@
 # `tree-query`
 
+> This README is TODO. If you'd like to use this software in a project, **don't hestiate to reach out to me.**
+
 Tree query is a tool that searches across indented lines.
 
 It is a replacement for Roam's query system.
+
+## Command-line usage
+
+`tree-query '{and: [[Hello]] [[Hi]]}' file1 file2 folder1 folder2`
 
 ## Features
 
