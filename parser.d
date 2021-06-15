@@ -1,4 +1,4 @@
-/** Detect indent level and return where the indent level stops in "i"
+/** Count the indent level and return where the indent level stops in "i"
   * A tab is counted as one indent.
   * Params:
   *      i                 = the index to start looking from. This is mutated
@@ -6,7 +6,7 @@
   *                          was.
   *      spaces_per_indent = the number of spaces to treat as one indent
   */
-int detect_indent_level(ref int i, string input, int spaces_per_indent=4) {
+int count_indents(ref int i, string input, int spaces_per_indent=4) {
     int nspaces = 0;
     if (i == input.length || !(input[i] == ' ' || input[i] == '\t')) {
         return 0;
@@ -26,10 +26,10 @@ int detect_indent_level(ref int i, string input, int spaces_per_indent=4) {
 }
 unittest {
     int i;
-    assert(detect_indent_level(i = 0, "    - hi") == 1);
-    assert(detect_indent_level(i = 0, "Foo") == 0);
-    assert(detect_indent_level(i = 0, "        - hi") == 2);
-    assert(detect_indent_level(i = 0, "\t - hey") == 1);
+    assert(count_indents(i = 0, "    - hi") == 1);
+    assert(count_indents(i = 0, "Foo") == 0);
+    assert(count_indents(i = 0, "        - hi") == 2);
+    assert(count_indents(i = 0, "\t - hey") == 1);
 }
 void doNothing(T)(T _=null) {}
 /** A streaming parser for Markdown trees. Emits a stream of parsing events. 
@@ -86,7 +86,7 @@ void parse(ParseEventHandler,
                 i++;
                 line_start_index = i;
                 int new_indent_level =
-                    detect_indent_level(i, input, spaces_per_indent);
+                    count_indents(i, input, spaces_per_indent);
                 line_content_start_index = i;
                 const extraEndings = i == input.length ? 0 : 1;
                 foreach (_;
