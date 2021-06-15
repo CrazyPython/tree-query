@@ -22,6 +22,10 @@ Tree-query is written in [Dlang](https://dlang.org) but don't let that put you o
 
 If you have any questions on D, feel free to go to #d on freenode or D Forums. People are very nice.
 
+### Internals
+
+I've spent some time writing doc comments inside the code. They provide a conceptual explanation of how the system works. Look for `/**` and `/++`.
+
 ### Notes
 
 A string in D is a reference to a region of immutable memory. It is a length and a pointer. For this reason, it is is very efficient to copy.
