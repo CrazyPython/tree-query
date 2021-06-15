@@ -58,6 +58,7 @@ void parse(ParseEventHandler,
     //BitType current_bits;
     //BitType[] stack;
     int line_content_start_index;
+    int line_start_index;
     // Workwround for void not being a parameter type
     void emitBlockStart(string nodeContent) {
         static if (is(ReturnType!(handler.start) == void)) {
@@ -79,9 +80,11 @@ void parse(ParseEventHandler,
             case '\n':
                 //stack[0] & current_bits;
                 // FIXME: Start and end based on "-"
-                const nodeContent = input[line_content_start_index..i];
+                const nodeContent = input[line_start_index..i];
+                import std.stdio;
                 emitBlockStart(nodeContent);
                 i++;
+                line_start_index = i;
                 int new_indent_level =
                     detect_indent_level(i, input, spaces_per_indent);
                 line_content_start_index = i;
@@ -119,7 +122,7 @@ void parse(ParseEventHandler,
         }
     }
     if (line_content_start_index != input.length) {
-        emitBlockStart(input[line_content_start_index .. input.length]);
+        emitBlockStart(input[line_start_index .. input.length]);
     }
     for (int i = 0; i < current_indent_level + 1; ++i) {
         emitBlockEnd();
@@ -144,10 +147,30 @@ unittest {
         string result;
         parse!(ExampleParseEventHandler, s => result ~= s, s => result ~= s)
             (sample ~ (useTrailingNewline ? "\n" : ""), 4, "Title");
+        import std.stdio;
+        debug writeln(result);
         assert(result == 
-          `STARTTitleSTART- abSTART- bENDENDSTARThelloSTARTworldENDSTARTfooENDENDEND`
+          "STARTTitleSTART- abSTART\t- bENDENDSTARThelloSTART\tworldENDSTART\tfooENDENDEND"
         );
     }
+}
+struct A {
+
+}
+private     struct WithConstructor {
+        string[] member;
+        this(string[] arg, A a) {
+            member = arg;
+        }
+        void start(string text) {
+        }
+        void end() {
+        }
+    }
+unittest {
+    A a;
+    parse!(WithConstructor)
+            ("Test", 4, "Title", ["arg"], a);
 }
 unittest {
     import std.stdio;
@@ -167,7 +190,8 @@ c
     string result;
     parse!(ExampleParseEventHandler, s => result ~= s, s => result ~= s, true)
              (sample, 1, "Title");
-    result.writeln;
+    writeln(result);
+    assert(result == "<div>Title<div>a<div><div>  b</div></div></div><div>c<div><div><div>   d</div></div></div></div></div>");
 }
 struct ConvertToXMLEventHandler {
     string start(string text) {
