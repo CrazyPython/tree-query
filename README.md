@@ -26,6 +26,8 @@ If you have any questions on D, feel free to go to #d on freenode or D Forums. P
 
 I've spent some time writing doc comments inside the code. They provide a conceptual explanation of how the system works. Look for `/**` and `/++`.
 
+Inside the unittests, there's an example guide on using `parser.d` as a library to build a Markdown to XML converter. 
+
 ### Notes
 
 A string in D is a reference to a region of immutable memory. It is a length and a pointer. For this reason, it is is very efficient to copy.
