@@ -14,7 +14,7 @@ It is a replacement for Roam's query system.
 
 This section is a work-in-progress.
 
-* **Fast**: Over 880Gbps on a MacBook Air
+* **Fast**: Over 880Mbps on a MacBook Air
 
 ## Contributing
 
