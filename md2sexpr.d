@@ -12,20 +12,32 @@ struct ConvertToSExprEventHandler {
     }
 }
 struct ConvertToSExprListEventHandler {
-    bool multiple = false;
+    int[] nchildren;
     string start(string text) {
-        if (multiple) {
+        int current;
+        if (nchildren.length) {
+            nchildren[$-1]++;
+            current = nchildren[$-1];
+        } else {
+            current = 0;
+        }
+        nchildren ~= 0;
+        // If we are starting a list with more than one child, add 2 parens
+        if (current == 1) {
             return " ((" ~ escape(text);
         } else {
-            multiple = true;
-            return "(" ~ escape(text);
+            return " (" ~ escape(text);
         }
     }
     string end() {
-        if (multiple) {
-            multiple = false;
+        // If we are ending a list with more than one child, add 2 parens
+        if (nchildren.length > 0 && nchildren[$-1] > 0) {
+            nchildren.length--;
             return "))";
-        } else return ") ";
+        } else {
+            nchildren.length--;
+            return ")";
+        }
     }
 }
 void main(string[] args) {
