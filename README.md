@@ -48,7 +48,7 @@ tree-query '{and: [[Page 1]] [[Page 2]]}' . | pbcopy
 
 GNU+Linux:
 ```
-tree-query '{and: [[Page 1]] [[Page 2]]}' . | 
+tree-query '{and: [[Page 1]] [[Page 2]]}' . | xclip
 ```
 
 ## Contributing
