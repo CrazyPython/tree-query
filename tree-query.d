@@ -152,7 +152,7 @@ int main(string[] args) {
     import std.getopt, std.file, std.stdio;
     // Parse arguments
     string query;
-    if (args[1].strip.startsWith("{")) {
+    if (args.length >= 2 && args[1].strip.startsWith("{")) {
         query = args[1];
         args = args[2..$];
     } else {
