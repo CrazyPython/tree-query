@@ -39,7 +39,12 @@ string extractQuery(string query) {
     }
 }
 unittest {
-    const nakedQueries = ["{and: [[foo]] [[bar]] }", "{or: [[foo]] [[bar]] }"];
+    const nakedQueries = [
+        "{and: [[foo]] [[bar]] }",
+        "{or: [[foo]] [[bar]] }",
+        "{and: [[foo]] [[bar]]}",
+        "{and: [[foo]] {and: [[bar]] [[spam]]}}"
+    ];
     foreach (nakedQuery; nakedQueries) {
         assert(extractQuery(nakedQuery) == nakedQuery);
         assert(extractQuery("{{query:" ~ nakedQuery ~ "}}") == nakedQuery);
@@ -156,7 +161,7 @@ int main(string[] args) {
     // Read query immediately. If the user has written an invalid query, show
     // an error before we read in all files.
     ubyte n = 0;
-    ParsedQuery qu = booleanQuery(query, n);
+    ParsedQuery qu = booleanQuery(extractQuery(query), n);
     string[] inputs;
     string[] inputnames;
     if (args.length == 0) {
