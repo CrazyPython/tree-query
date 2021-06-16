@@ -15,23 +15,22 @@ tree-query '{and: [[Page 1]] [[Page 2]]}' .
 [*Learn to navigate to a working directory with `cd`*](https://linuxize.com/post/linux-cd-command/)
 
 **Query in a folder:**
-
 ```
 tree-query '{and: [[Page 1]] [[Page 2]]}' /Users/steve/myfoldername/
 ```
 *Learn to get the location of a folder on [macOS](https://osxdaily.com/2009/11/23/copy-a-files-path-to-the-terminal-by-dragging-and-dropping/), [Windows](https://www.top-password.com/blog/copy-full-path-of-a-folder-file-in-windows/), or [GNU+Linux](https://unix.stackexchange.com/questions/102551/mouse-shortcut-to-copy-the-path-to-a-file-in-the-gnome-file-manager).*
 
-**Query in a group of folders and files:**
+Or query in multiple folders and files:
 
 ```
 tree-query '{and: [[Page 1]] [[Page 2]]}' /Users/steve/myfoldername/ file1
 ```
 
-**Query stdin:**
-
+**Query stdin with pipes:**
 ```
 cat myfile | tree-query '{and: [[Page 1]] [[Page 2]]}'
 ```
+[*Learn to build powerful no-code applications using pipes*](https://youtu.be/tc4ROCJYbm0?t=360)
 
 ## Features
 
