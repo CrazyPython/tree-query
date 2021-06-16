@@ -10,5 +10,5 @@
  - Supports `{and:`, `{or:`, `{not:`, nested arbitrarily, querying using page references
  - Works on any kind of indentation, including tabs, spaces.
    - Caveat: Mixing tabs and spaces in one file may lead to undesired results, because a tab is interpreted as one space
- - Ignores text inside Markdown code blocks `\`\`\``
+ - Ignores text inside Markdown code blocks
    - Indentation is different for these code blocks. Searching with their text included as part of the parent block is not supported yet
