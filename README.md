@@ -38,6 +38,19 @@ This section is a work-in-progress.
 
 * **Fast**
 
+## Basic usage with the command-line
+
+### Copy result to clipboard
+macOS:
+```
+tree-query '{and: [[Page 1]] [[Page 2]]}' . | pbcopy
+```
+
+GNU+Linux:
+```
+tree-query '{and: [[Page 1]] [[Page 2]]}' . | 
+```
+
 ## Contributing
 
 Tree-query is written in [Dlang](https://dlang.org) but don't let that put you off- if you know C, C++, or Java, you'll pick it up very quickly.
