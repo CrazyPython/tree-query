@@ -23,8 +23,8 @@ jobs:
       with:
         compiler: ${{ matrix.dc }}
     - name: make tree-query
-      run: (dmd && make) || true
+      run: (dmd && make && echo "Built successfully with DMD Reference Compiler!") || true
     - name: make tree-query-build
-      run: (ldc && make tree-query-build) || true
+      run: (ldc2 && make tree-query-build && echo "Built successfully with LLVM D Compiler!") || true
     #- name: make distcheck
     #  run: make distcheck
