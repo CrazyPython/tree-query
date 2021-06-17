@@ -10,7 +10,7 @@ jobs:
   build:
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macOS-latest]
+        os: [ubuntu-latest, macOS-latest]
         dc: [dmd-latest, ldc-latest, dmd-2.085.0, ldc-1.17.0]
         exclude:
           - { os: macOS-latest, dc: dmd-2.085.0 }
@@ -23,8 +23,8 @@ jobs:
       with:
         compiler: ${{ matrix.dc }}
     - name: make tree-query
-      run: (dmd && make && echo "Built successfully with DMD Reference Compiler!") || true
+      run: (which dmd && make && echo "Built successfully with DMD Reference Compiler!") || true
     - name: make tree-query-build
-      run: (ldc2 && make tree-query-build && echo "Built successfully with LLVM D Compiler!") || true
+      run: (which ldc2 && make tree-query-build && echo "Built successfully with LLVM D Compiler!") || true
     #- name: make distcheck
     #  run: make distcheck
