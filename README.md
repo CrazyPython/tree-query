@@ -108,4 +108,21 @@ A string in D is a reference to a region of immutable memory. It is a length and
 A struct is like a Java record or class.
 
 ## Known bugs
- - Mixing tabs and spaces is not supported in the same file, unless an explicit spaces per indent specified
+ - Mixing tabs and spaces in the same file is not supported, unless an explicit spaces per indent specified
+
+## Your rights
+
+This is open-source software.
+
+We use copyleft to gurantee these rights:
+
+0. Free for commercial use and any other purpose
+1. Freedom to remix to fit your needs: You (and if you can't code, by proxy a programmer you hire) have freedom to add new query keywords, completely change the query system, add support for new formats like org-mode, or anything else
+2. Freedom to help friends by sharing
+3. Freedom to share remixes, commercially and noncommercially
+
+I believe knowledge management is a deeply, and everyone should have freedom over their "digital brain." A digital brain is a deeply intimate and personal thing. This means you are the sovereign of your digital brain.
+
+Compatible with permissive licenses like Apache License, MIT License, and Mozilla Public License.
+
+(C) 2021. Affero General Public License v3.0 or any later version
