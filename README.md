@@ -103,4 +103,4 @@ A string in D is a reference to a region of immutable memory. It is a length and
 A struct is like a Java record or class.
 
 ## Known bugs
- - Mixing tabs and spaces is not supported, unless an explicit spaces per indent specified
+ - Mixing tabs and spaces is not supported in the same file, unless an explicit spaces per indent specified
