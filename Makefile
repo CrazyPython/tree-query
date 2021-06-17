@@ -9,5 +9,5 @@ md2sexpr-build:
 
 # Compile with LLVM
 tree-query-build:
-	~/dlang/ldc-1.23.0/bin/ldc2 --link-defaultlib-shared=false -O2 -release tree-query.d interp.d query.d parser.d
+	ldc2 --link-defaultlib-shared=false -O2 -release tree-query.d interp.d query.d parser.d
 	strip tree-query
