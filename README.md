@@ -6,39 +6,6 @@ Tree query is a tool that searches across indented lines.
 
 It is a replacement for Roam's query system. It supports everything Roam does, except for block references.
 
-## Installation
-
-### Build from source
-Currently the only supported method. DYI style.
-
-On FreeBSD, GNU+Linux, and macOS, open Terminal and go:
-```
-curl https://dlang.org/install.sh | bash -s
-```
-
-On Windows, download and install [Git Bash](https://gitforwindows.org/):
-```
-mkdir %USERPROFILE%\dlang
-powershell.exe -Command "wget https://dlang.org/install.sh -OutFile %USERPROFILE%\dlang\install.sh"
-```
-
-Then:
-
-```
-~/dlang/install.sh install ldc-1.23.0,dub
-```
-
-Then `cd` into the directory where you cloned this directory and type:
-```
-make tree-query-build
-```
-
-Install to make available eveywhere:
-```
-chmod 700 ~/Downloads/tree-query
-sudo mv ~/Downloads/tree-query /usr/local/bin
-```
-
 ## Quickstart
 
 **Query in current directory:**
@@ -64,6 +31,39 @@ tree-query '{and: [[Page 1]] [[Page 2]]}' /Users/steve/myfoldername/ file1
 cat myfile | tree-query '{and: [[Page 1]] [[Page 2]]}'
 ```
 [*Learn to build powerful no-code applications using pipes*](https://youtu.be/tc4ROCJYbm0?t=360)
+
+## Installation
+
+### Build from source
+Currently the only supported method. DYI style.
+
+On FreeBSD, GNU+Linux, and macOS, open Terminal and go:
+```
+curl https://dlang.org/install.sh | bash -s
+```
+
+On Windows, download and install [Git Bash](https://gitforwindows.org/), then run:
+```
+mkdir %USERPROFILE%\dlang
+powershell.exe -Command "wget https://dlang.org/install.sh -OutFile %USERPROFILE%\dlang\install.sh"
+```
+
+Then:
+
+```
+~/dlang/install.sh install ldc-1.23.0,dub
+```
+
+Then `cd` into the directory where you cloned this directory and type:
+```
+make tree-query-build
+```
+
+Install to make available eveywhere:
+```
+chmod 700 ~/Downloads/tree-query
+sudo mv ~/Downloads/tree-query /usr/local/bin
+```
 
 ## Features
 
