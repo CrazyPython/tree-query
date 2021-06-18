@@ -6,6 +6,8 @@ Tree query is a tool that searches across indented lines.
 
 It is a replacement for Roam's query system. It supports everything Roam does, except for block references.
 
+[Join us on Discord](https://discord.gg/7B9ywS5x)
+
 ## Quickstart
 
 **Query in current directory:**
