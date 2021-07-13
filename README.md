@@ -63,8 +63,8 @@ make tree-query-build
 
 Install to make available eveywhere:
 ```
-chmod 700 ~/Downloads/tree-query
-sudo mv ~/Downloads/tree-query /usr/local/bin
+chmod 700 tree-query
+sudo mv tree-query /usr/local/bin
 ```
 
 ## Features
