@@ -2,7 +2,7 @@
 
 > This README is TODO. If you'd like to use this software in a project, **don't hestiate to reach out to me.**
 
-Tree query is a tool that searches across indented lines.
+`tree-query` is a tool that lets you execute queries on ordinary directories of files like text and Markdown, inspired by Roam Research's query syntax.
 
 It is a replacement for Roam's query system. It supports everything Roam does, except for block references.
 
@@ -44,26 +44,26 @@ On FreeBSD, GNU+Linux, and macOS, open Terminal and go:
 curl https://dlang.org/install.sh | bash -s
 ```
 
-On Windows, download and install [Git Bash](https://gitforwindows.org/), then run:
+On Windows, download and install [Git Bash](https://gitforwindows.org/) and [7-Zip to C:\Program Files](https://www.7-zip.org/), then run:
 ```
 mkdir %USERPROFILE%\dlang
-powershell.exe -Command "wget https://dlang.org/install.sh -OutFile %USERPROFILE%\dlang\install.sh"
+set PATH="%PATH%;C:\Program Files\7-Zip"
+set BASH="\Program Files\Git\usr\bin\bash.exe"
+mkdir dlang
+powershell.exe -Command "wget https://dlang.org/install.sh -OutFile dlang\install.sh"
 ```
 
 Then:
-
 ```
-set PATH=%PATH%;C:\Program Files\7-Zip
-set BASH="\Program Files\Git\usr\bin\bash.exe
-~/dlang/install.sh install ldc-1.23.0,dub
+~/dlang/install.sh install ldc-1.23.0
 ```
 
-Then `cd` into the directory where you cloned this directory and type:
+Then `cd` into the directory where you cloned this directory (`git clone https://github.com/CrazyPython/tree-query.git && cd tree-query`) and type:
 ```
-make tree-query-build
+~/dlang/ldc-1.23.0/bin/ldc2 --link-defaultlib-shared=false -O2 -release tree-query.d interp.d query.d parser.d
 ```
 
-Install to make available eveywhere:
+(Non-Windows) Install to make available eveywhere:
 ```
 chmod 700 tree-query
 sudo mv tree-query /usr/local/bin
