@@ -35,9 +35,10 @@ cat myfile | tree-query '{and: [[Page 1]] [[Page 2]]}'
 [*Learn to build powerful no-code applications using pipes*](https://youtu.be/tc4ROCJYbm0?t=360)
 
 ## Installation
+### [Download a copy](https://github.com/CrazyPython/tree-query/releases/tag/v0.1.1)
+The more convenient method. Click above for instructions.
 
 ### Build from source
-Currently the only supported method. DYI style.
 
 On FreeBSD, GNU+Linux, and macOS, open Terminal and go:
 ```
