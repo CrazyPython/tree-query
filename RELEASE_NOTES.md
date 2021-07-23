@@ -1,10 +1,11 @@
 # Release notes
 
-## Since 0.0.1
+## 0.0.2
  - Added hyperlinked documentation on usage instructions for people new to the CLI
  - Added missing source files, now it's possible to compile
  - Support for starting queries with `{query:` was enabled
  - Shows message when executed without a query
+ - Fixed build instructions for Windows and added a binary release for Windows and Mac
 
 ## 0.0.1
  - Supports `{and:`, `{or:`, `{not:`, nested arbitrarily, querying using page references
