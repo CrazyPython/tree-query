@@ -14,6 +14,7 @@ int count_indents(ref int i, string input, int spaces_per_indent=4) {
     for (; i < input.length; ++i) {
         switch (input[i]) {
             case  ' ': nspaces++; break;
+            case  '*': nspaces++; break;
             case '\t': nspaces += spaces_per_indent; break;
             // Commented out makes it only accept "-"
             //case  '-': return nspaces / spaces_per_indent;
