@@ -53,6 +53,8 @@ powershell.exe -Command "wget https://dlang.org/install.sh -OutFile %USERPROFILE
 Then:
 
 ```
+set PATH=%PATH%;C:\Program Files\7-Zip
+set BASH="\Program Files\Git\usr\bin\bash.exe
 ~/dlang/install.sh install ldc-1.23.0,dub
 ```
 
