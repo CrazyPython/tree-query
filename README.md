@@ -91,6 +91,8 @@ tree-query '{and: [[Page 1]] [[Page 2]]}' . | xclip
 
 ## Contributing
 
+`tree-query` has doc comments on internals and example code demonstrating how internal APIs work. (Ctrl-F for "unittest")
+
 Tree-query is written in [Dlang](https://dlang.org) but don't let that put you off- if you know C, C++, or Java, you'll pick it up very quickly.
 
 If you have any questions on D, feel free to go to #d on freenode or D Forums. People are very nice.
