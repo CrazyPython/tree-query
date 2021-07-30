@@ -91,6 +91,14 @@ tree-query '{and: [[Page 1]] [[Page 2]]}' . | xclip
 
 ## Contributing
 
+**query.d**: The logic for executing Roam queries
+
+**parser.d**: The Markdown parser
+
+**tree-query.d**: The command-line tool/wrapper. Parses the string `{and: [[Page 1]] [[Page 2]]}` into a tree of boolean expressions
+
+**interp.d**: Evaluates boolean expressions on behalf of query.d
+
 `tree-query` has doc comments on internals and example code demonstrating how internal APIs work. (Ctrl-F for "unittest")
 
 Tree-query is written in [Dlang](https://dlang.org) but don't let that put you off- if you know C, C++, or Java, you'll pick it up very quickly.
