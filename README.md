@@ -93,11 +93,11 @@ tree-query '{and: [[Page 1]] [[Page 2]]}' . | xclip
 
 **query.d**: The logic for executing Roam queries
 
-**parser.d**: The Markdown parser
+**parser.d**: The Markdown/org-mode parser, which detects the indentation level of each line and uses it to emit a stream of events for a handler like `query.d` to consume.
 
-**tree-query.d**: The command-line tool/wrapper. Parses the string `{and: [[Page 1]] [[Page 2]]}` into a tree of boolean expressions
+**tree-query.d**: The command-line tool/wrapper. Recursively parses the string `{and: [[Page 1]] [[Page 2]]}` into a tree of expressions
 
-**interp.d**: Evaluates boolean expressions on behalf of query.d
+**interp.d**: Recursively evaluates boolean expressions on behalf of query.d
 
 `tree-query` has doc comments on internals and example code demonstrating how internal APIs work. (Ctrl-F for "unittest")
 
